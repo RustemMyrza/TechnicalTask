@@ -1,11 +1,10 @@
 services:
   frontend:
     build:
-      context: ./frontend
+      context: ./frontend  # Указываем, что контекст сборки для фронтенда в папке frontend
+      dockerfile: Dockerfile  # Путь к Dockerfile для фронтенда
     ports:
       - "3000:3000"
-    volumes:
-      - ./frontend:/app
     working_dir: /app
     command: npm start
     environment:
@@ -13,12 +12,15 @@ services:
 
   backend:
     build:
-      context: ./backend
+      context: ./backend  # Указываем, что контекст сборки для бэкенда в папке backend
+      dockerfile: Dockerfile  # Путь к Dockerfile для бэкенда
     ports:
       - "3001:3001"
     volumes:
-      - ./backend:/app
+      - ./backend:/app  # Монтируем исходный код для разработки
+      - /app/node_modules  # Исключаем локальные node_modules, сохраняя их внутри контейнера
+
     working_dir: /app
-    command: npx nodemon server.js
+    command: node server.js
     environment:
       - CHOKIDAR_USEPOLLING=true
