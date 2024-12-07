@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
     res.send('Hello world')
 })
 
-app.delete('/data', (req, res) => {
+app.delete('/data/delete', (req, res) => {
     db.run(`DELETE FROM transactions`, [], function (err) {
         if (err) {
             console.error(err.message);
@@ -52,7 +52,7 @@ app.get('/data', (req, res) => {
                 error: 'Database error'
             });
         }
-        return rows.length != 0 ? res.status(200).json(rows) : res.status(200).json({
+        return rows.length != 0 ? res.status(200).json(rows) : res.status(404).json({
             message: "There is no data in this table"
         });
     })

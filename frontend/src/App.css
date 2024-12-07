@@ -12,3 +12,24 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.App-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 20px;
+  width: 100vw;
+}
+
+.form-container {
+  flex: 1;
+  max-width: 50%;
+  min-width: 300px;
+}
+
+.table-container {
+  flex: 2;
+  max-width: 50%;
+  overflow-x: auto;
+}

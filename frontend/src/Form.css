@@ -1,11 +1,14 @@
 
 .form {
     max-width: 600px;
-    margin: 100px auto;
     padding: 20px;
     background-color: #f4f4f9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* margin-top: 10vh;
+    /* margin-left: 5vw; */
+    /* margin-right: auto;  */
+    margin: 5vh auto;
   }
   
 

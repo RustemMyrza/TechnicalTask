@@ -3,7 +3,7 @@ import './Form.css';
 
 const Form = () => {
     const [dateTime, setDateTime] = useState("");
-    const [sum, setSum] = useState(0);
+    const [sum, setSum] = useState("");
     const [category, setCategory] = useState("Product");
     const [comment, setComment] = useState("");
 
@@ -31,6 +31,10 @@ const Form = () => {
                 const data = await response.json();
                 console.log("Данные успешно отправлены:", data);
                 alert("Расход успешно добавлен!");
+                setDateTime("");
+                setSum("");
+                setCategory("Product");
+                setComment("");
             } else {
                 console.error("Ошибка при отправке данных:", response.status);
                 alert("Ошибка при добавлении расхода.");
@@ -40,6 +44,7 @@ const Form = () => {
             alert("Ошибка подключения к серверу\nМожет вы не включили Backend часть данной задачки?")
         } finally {
             setLoading(false);
+
         }
     };
 
